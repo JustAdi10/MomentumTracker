@@ -5,63 +5,64 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 20 14.3% 4.1%;
-  --muted: 60 4.8% 95.9%;
-  --muted-foreground: 25 5.3% 44.7%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 20 14.3% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 20 14.3% 4.1%;
-  --border: 20 5.9% 90%;
-  --input: 20 5.9% 90%;
-  --primary: 330 82% 76%; /* Pink accent color */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 262 83% 58%; /* Purple accent color */
-  --secondary-foreground: 0 0% 100%;
-  --accent: 349 100% 76%; /* Additional pink variant */
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 330 82% 76%;
+  /* Warm, earthy palette: #fffcf2 (cream), #ccc5b9 (light gray), #403d39 (dark gray), #252422 (almost black), #eb5e28 (orange) */
+  --background: 48 100% 97%; /* #fffcf2 - cream background */
+  --foreground: 24 6% 14%; /* #403d39 - dark gray text */
+  --muted: 33 10% 76%; /* #ccc5b9 - light gray for muted elements */
+  --muted-foreground: 24 6% 24%; /* Darker than regular foreground */
+  --popover: 48 100% 97%; /* Matches background */
+  --popover-foreground: 24 6% 14%; /* Matches foreground */
+  --card: 48 100% 99%; /* Slightly lighter than background */
+  --card-foreground: 24 6% 14%; /* Matches foreground */
+  --border: 33 10% 80%; /* Light borders based on the light gray */
+  --input: 33 10% 80%; /* Matches border */
+  --primary: 16 80% 54%; /* #eb5e28 - orange as primary accent */
+  --primary-foreground: 48 100% 97%; /* #fffcf2 - cream on orange for contrast */
+  --secondary: 33 10% 76%; /* #ccc5b9 - light gray as secondary */
+  --secondary-foreground: 24 6% 14%; /* Dark text on light gray */
+  --accent: 16 80% 60%; /* Slightly lighter orange for accent */
+  --accent-foreground: 48 100% 97%; /* Cream text on accent */
+  --destructive: 0 84% 60%; /* Red-toned destructive action */
+  --destructive-foreground: 48 100% 97%; /* Cream text on destructive */
+  --ring: 16 80% 54%; /* Orange for focus rings, etc. */
   --radius: 1rem;
   
   /* Custom colors for progress indicators */
-  --success: 142 71% 45%;
-  --warning: 38 92% 50%;
-  --info: 198 93% 60%;
-  --chart-1: 330 82% 76%;
-  --chart-2: 262 83% 58%;
-  --chart-3: 198 93% 60%;
-  --chart-4: 142 71% 45%;
-  --chart-5: 38 92% 50%;
+  --success: 142 71% 45%; /* Green success indicator */
+  --warning: 16 80% 64%; /* Lighter orange warning */
+  --info: 206 93% 60%; /* Blue information indicator */
+  --chart-1: 16 80% 54%; /* Orange - primary */
+  --chart-2: 24 6% 24%; /* Dark gray */
+  --chart-3: 33 10% 76%; /* Light gray */
+  --chart-4: 142 71% 45%; /* Green */
+  --chart-5: 48 100% 80%; /* Light cream */
 }
 
 .dark {
-  --background: 240 10% 4%;
-  --foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --popover: 240 10% 4%;
-  --popover-foreground: 0 0% 98%;
-  --card: 240 10% 8%;
-  --card-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --primary: 330 82% 76%; /* Pink accent color */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 262 83% 58%; /* Purple accent color */
-  --secondary-foreground: 0 0% 100%;
-  --accent: 349 100% 76%; /* Additional pink variant */
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --ring: 330 82% 76%;
+  --background: 24 6% 13%; /* #252422 - almost black background */
+  --foreground: 48 100% 97%; /* #fffcf2 - cream text */
+  --muted: 24 6% 24%; /* Darker muted areas */
+  --muted-foreground: 33 10% 76%; /* Light gray for muted text */
+  --popover: 24 6% 13%; /* Matches background */
+  --popover-foreground: 48 100% 97%; /* Matches foreground */
+  --card: 24 6% 18%; /* Slightly lighter than background */
+  --card-foreground: 48 100% 97%; /* Matches foreground */
+  --border: 24 6% 24%; /* Darker borders */
+  --input: 24 6% 24%; /* Matches border */
+  --primary: 16 80% 54%; /* #eb5e28 - orange as primary */
+  --primary-foreground: 48 100% 97%; /* Cream on orange */
+  --secondary: 24 6% 24%; /* Darker gray for secondary */
+  --secondary-foreground: 48 100% 97%; /* Cream on secondary */
+  --accent: 16 80% 40%; /* Deeper orange for accent in dark mode */
+  --accent-foreground: 48 100% 97%; /* Cream on accent */
+  --destructive: 0 63% 31%; /* Darker red for destructive */
+  --destructive-foreground: 48 100% 97%; /* Cream on destructive */
+  --ring: 16 80% 54%; /* Orange for focus rings */
   
   /* Custom colors for progress indicators */
-  --success: 142 71% 45%;
-  --warning: 38 92% 50%;
-  --info: 198 93% 60%;
+  --success: 142 71% 38%; /* Darker green success */
+  --warning: 16 80% 54%; /* Orange warning */
+  --info: 206 93% 50%; /* Darker blue info */
 }
 
 @layer base {

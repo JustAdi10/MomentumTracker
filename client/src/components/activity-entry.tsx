@@ -10,6 +10,11 @@ type ActivityEntryProps = {
   activity: CommunityActivity;
 };
 
+// Helper function to ensure cheers is treated as a number
+function getCheerCount(activity: CommunityActivity): number {
+  return typeof activity.cheers === 'number' ? activity.cheers : 0;
+}
+
 export default function ActivityEntry({ activity }: ActivityEntryProps) {
   const { cheerPost, isCheering } = useCommunity();
   const [isHovered, setIsHovered] = useState(false);
@@ -72,19 +77,19 @@ export default function ActivityEntry({ activity }: ActivityEntryProps) {
           
           <div className="flex items-center justify-end mt-2">
             <Button
-              variant={activity.cheers > 0 ? "secondary" : "outline"}
+              variant={getCheerCount(activity) > 0 ? "secondary" : "outline"}
               size="sm"
               className={`px-3 py-1 h-8 font-medium rounded-full ${
-                activity.cheers > 0 
+                getCheerCount(activity) > 0 
                   ? "bg-primary/10 text-primary hover:bg-primary/20 dark:bg-primary/20" 
                   : "text-muted-foreground hover:text-primary hover:border-primary"
               } ${isHovered ? 'opacity-100' : 'opacity-90'}`}
               onClick={handleCheer}
               disabled={typeof isCheering === 'number'}
             >
-              <Heart className={`h-4 w-4 mr-1.5 ${activity.cheers > 0 ? "fill-primary text-primary" : ""}`} />
-              {activity.cheers > 0 ? (
-                <span>{activity.cheers}</span>
+              <Heart className={`h-4 w-4 mr-1.5 ${getCheerCount(activity) > 0 ? "fill-primary text-primary" : ""}`} />
+              {getCheerCount(activity) > 0 ? (
+                <span>{getCheerCount(activity)}</span>
               ) : (
                 "Cheer"
               )}
