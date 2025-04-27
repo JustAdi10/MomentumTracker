@@ -11,9 +11,8 @@ import { CommunityProvider } from "@/hooks/use-community";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/home-page";
 import HabitsPage from "@/pages/habits-page";
-import StatsPage from "@/pages/stats-page";
 import CommunityPage from "@/pages/community-page";
-import ProfilePage from "@/pages/profile-page";
+import ProfileStatsPage from "@/pages/profile-stats-page";
 import AuthPage from "@/pages/auth-page";
 import { ProtectedRoute } from "@/lib/protected-route";
 
@@ -22,9 +21,8 @@ function Router() {
     <Switch>
       <ProtectedRoute path="/" component={HomePage} />
       <ProtectedRoute path="/habits" component={HabitsPage} />
-      <ProtectedRoute path="/stats" component={StatsPage} />
+      <ProtectedRoute path="/profile" component={ProfileStatsPage} />
       <ProtectedRoute path="/community" component={CommunityPage} />
-      <ProtectedRoute path="/profile" component={ProfilePage} />
       <Route path="/auth" component={AuthPage} />
       <Route component={NotFound} />
     </Switch>

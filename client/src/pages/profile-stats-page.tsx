@@ -456,8 +456,8 @@ function ProfileStatsContent() {
                               name={achievement.name}
                               description={achievement.description}
                               icon={achievement.icon}
-                              xpReward={achievement.xpReward}
-                              unlocked={achievement.unlocked}
+                              xpReward={achievement.xpReward || 0}
+                              unlocked={achievement.unlocked || false}
                               unlockedAt={achievement.unlockedAt}
                             />
                           ))
@@ -487,8 +487,8 @@ function ProfileStatsContent() {
                               name={achievement.name}
                               description={achievement.description}
                               icon={achievement.icon}
-                              xpReward={achievement.xpReward}
-                              unlocked={achievement.unlocked}
+                              xpReward={achievement.xpReward || 0}
+                              unlocked={achievement.unlocked || false}
                               unlockedAt={achievement.unlockedAt}
                             />
                           ))
@@ -516,8 +516,8 @@ function ProfileStatsContent() {
                             name={achievement.name}
                             description={achievement.description}
                             icon={achievement.icon}
-                            xpReward={achievement.xpReward}
-                            unlocked={achievement.unlocked}
+                            xpReward={achievement.xpReward || 0}
+                            unlocked={achievement.unlocked || false}
                             unlockedAt={achievement.unlockedAt}
                           />
                         ))
