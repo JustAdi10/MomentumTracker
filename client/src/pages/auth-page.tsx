@@ -66,24 +66,24 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen grid md:grid-cols-2 bg-white">
+    <div className="min-h-screen grid md:grid-cols-2 bg-black text-white">
       {/* Left side: Form */}
       <div className="flex items-center justify-center p-4 md:p-8">
-        <Card className="w-full max-w-md shadow-lg border-0">
+        <Card className="w-full max-w-md shadow-lg border-0 bg-black/90 text-white">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 h-14 w-14 rounded-full bg-primary text-white flex items-center justify-center">
               <span className="font-bold text-2xl">M</span>
             </div>
-            <CardTitle className="text-2xl font-bold">Momentum</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-bold text-white">Momentum</CardTitle>
+            <CardDescription className="text-gray-400">
               Build habits, track progress, achieve more
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid grid-cols-2 mb-6">
-                <TabsTrigger value="login">Login</TabsTrigger>
-                <TabsTrigger value="register">Register</TabsTrigger>
+              <TabsList className="grid grid-cols-2 mb-6 bg-black/30">
+                <TabsTrigger value="login" className="data-[state=active]:bg-primary data-[state=active]:text-white">Login</TabsTrigger>
+                <TabsTrigger value="register" className="data-[state=active]:bg-primary data-[state=active]:text-white">Register</TabsTrigger>
               </TabsList>
               
               <TabsContent value="login">
@@ -119,7 +119,7 @@ export default function AuthPage() {
                     
                     <Button 
                       type="submit" 
-                      className="w-full" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white" 
                       disabled={loginMutation.isPending}
                     >
                       {loginMutation.isPending ? (
@@ -210,7 +210,7 @@ export default function AuthPage() {
                     
                     <Button 
                       type="submit" 
-                      className="w-full" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white" 
                       disabled={registerMutation.isPending}
                     >
                       {registerMutation.isPending ? (
@@ -227,7 +227,7 @@ export default function AuthPage() {
               </TabsContent>
             </Tabs>
           </CardContent>
-          <CardFooter className="flex justify-center text-sm text-gray-500">
+          <CardFooter className="flex justify-center text-sm text-gray-400">
             {activeTab === "login" 
               ? "Don't have an account? Click Register above" 
               : "Already have an account? Click Login above"}
