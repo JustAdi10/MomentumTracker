@@ -3,24 +3,12 @@ import { Home, ListTodo, BarChart2, Users, User, Plus } from "lucide-react";
 import { useHabits } from "@/hooks/use-habits";
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import AddHabitDialog from "@/components/add-habit-dialog";
 
 export default function TabBar() {
   const [location] = useLocation();
   const [openAddDialog, setOpenAddDialog] = useState(false);
   const addButtonRef = useRef<HTMLButtonElement>(null);
-  const { addHabit, isAddingHabit } = useHabits();
-  
-  const handleAddNewHabit = (data: any) => {
-    addHabit(data);
-    setOpenAddDialog(false);
-  };
   
   const tabs = [
     {
@@ -109,88 +97,7 @@ export default function TabBar() {
       <div className="h-16"></div>
       
       {/* Add Habit Dialog */}
-      <Dialog open={openAddDialog} onOpenChange={setOpenAddDialog}>
-        <DialogContent className="sm:max-w-md mx-4 rounded-xl">
-          <DialogHeader>
-            <DialogTitle className="text-center text-primary">Add New Habit</DialogTitle>
-            <DialogDescription className="text-center text-muted-foreground">
-              Create a new habit you want to build. What positive change do you want to make?
-            </DialogDescription>
-          </DialogHeader>
-          
-          <div className="mt-4 space-y-4">
-            <div className="grid gap-2">
-              <label htmlFor="name" className="text-sm font-medium">
-                Habit Name
-              </label>
-              <input
-                id="name"
-                className="flex h-10 rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                placeholder="E.g., Drink water, Morning meditation, Exercise"
-              />
-            </div>
-            
-            <div className="grid gap-2">
-              <label htmlFor="description" className="text-sm font-medium">
-                Description (optional)
-              </label>
-              <textarea
-                id="description"
-                className="flex min-h-20 rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                placeholder="Why is this habit important to you?"
-              />
-            </div>
-            
-            <div className="grid gap-2">
-              <label htmlFor="frequency" className="text-sm font-medium">
-                Frequency
-              </label>
-              <select
-                id="frequency"
-                className="flex h-10 rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-              </select>
-            </div>
-            
-            <div className="flex justify-end gap-2 mt-6">
-              <Button 
-                variant="outline" 
-                onClick={() => setOpenAddDialog(false)}
-                className="rounded-lg"
-              >
-                Cancel
-              </Button>
-              <Button 
-                onClick={() => {
-                  // Get form values
-                  const nameInput = document.getElementById('name') as HTMLInputElement;
-                  const descriptionInput = document.getElementById('description') as HTMLTextAreaElement;
-                  const frequencyInput = document.getElementById('frequency') as HTMLSelectElement;
-                  
-                  if (nameInput && nameInput.value.trim()) {
-                    handleAddNewHabit({
-                      name: nameInput.value,
-                      description: descriptionInput?.value || '',
-                      frequency: frequencyInput?.value || 'daily',
-                      icon: 'clock',
-                      color: '',
-                      targetDays: null,
-                      reminderTime: null
-                    });
-                  }
-                }}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
-                disabled={isAddingHabit}
-              >
-                {isAddingHabit ? 'Adding...' : 'Add Habit'}
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <AddHabitDialog open={openAddDialog} onOpenChange={setOpenAddDialog} />
     </>
   );
 }

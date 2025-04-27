@@ -58,11 +58,13 @@ export default function AddHabitDialog({ open, onOpenChange }: AddHabitDialogPro
   // Handle form submission
   const onSubmit = (data: FormValues) => {
     addHabit(data);
-    if (!isAddingHabit) {
-      // Reset form and close dialog
-      form.reset();
-      onOpenChange(false);
-    }
+    // Reset form and close dialog after successful submission
+    setTimeout(() => {
+      if (!isAddingHabit) {
+        form.reset();
+        onOpenChange(false);
+      }
+    }, 300);
   };
   
   // Color options
@@ -85,10 +87,10 @@ export default function AddHabitDialog({ open, onOpenChange }: AddHabitDialogPro
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="max-w-full md:max-w-[500px] mx-4 rounded-xl p-6">
         <DialogHeader>
-          <DialogTitle>Add New Habit</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-center text-primary text-xl">Add New Habit</DialogTitle>
+          <DialogDescription className="text-center text-muted-foreground">
             Create a new habit to track. Regular habits build momentum for lasting change.
           </DialogDescription>
         </DialogHeader>
@@ -240,18 +242,20 @@ export default function AddHabitDialog({ open, onOpenChange }: AddHabitDialogPro
               )}
             />
 
-            <DialogFooter>
+            <div className="flex flex-col-reverse sm:flex-row gap-2 sm:justify-end mt-6">
               <Button 
                 type="button" 
                 variant="outline" 
                 onClick={() => onOpenChange(false)}
                 disabled={isAddingHabit}
+                className="rounded-lg w-full sm:w-auto"
               >
                 Cancel
               </Button>
               <Button 
                 type="submit"
                 disabled={isAddingHabit}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg w-full sm:w-auto"
               >
                 {isAddingHabit ? (
                   <>
@@ -262,7 +266,7 @@ export default function AddHabitDialog({ open, onOpenChange }: AddHabitDialogPro
                   'Create Habit'
                 )}
               </Button>
-            </DialogFooter>
+            </div>
           </form>
         </Form>
       </DialogContent>
