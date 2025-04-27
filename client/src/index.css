@@ -144,3 +144,13 @@
   }
 }
 
+@layer components {
+  .auth-dark-input {
+    @apply bg-black/60 text-white border-gray-700;
+  }
+  
+  .auth-dark-input::placeholder {
+    @apply text-gray-400/70;
+  }
+}
+
