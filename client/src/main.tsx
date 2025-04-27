@@ -6,8 +6,8 @@ import { ThemeProvider } from "next-themes";
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider 
     attribute="class" 
-    defaultTheme="system" 
-    enableSystem={true}
+    defaultTheme="dark" 
+    enableSystem={false}
     disableTransitionOnChange={false}
   >
     <App />

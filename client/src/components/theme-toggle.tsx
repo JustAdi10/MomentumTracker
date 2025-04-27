@@ -20,38 +20,24 @@ export default function ThemeToggle() {
 
   if (!mounted) return null;
 
+  // Toggle between light and dark theme directly with a simple button
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-9 w-9 rounded-full border-primary/20 bg-background hover:bg-primary/5"
-          aria-label="Toggle theme"
-        >
-          {theme === "dark" ? (
-            <Moon className="h-5 w-5 text-primary" />
-          ) : theme === "light" ? (
-            <Sun className="h-5 w-5 text-primary" />
-          ) : (
-            <Monitor className="h-5 w-5 text-primary" />
-          )}
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")} className="cursor-pointer">
-          <Sun className="h-4 w-4 mr-2 text-primary" />
-          <span>Light</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")} className="cursor-pointer">
-          <Moon className="h-4 w-4 mr-2 text-primary" />
-          <span>Dark</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")} className="cursor-pointer">
-          <Monitor className="h-4 w-4 mr-2 text-primary" />
-          <span>System</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={toggleTheme}
+      className="h-8 w-8 p-0 rounded-full border-primary/20 bg-background hover:bg-primary/5"
+      aria-label="Toggle theme"
+    >
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4 text-primary" />
+      ) : (
+        <Moon className="h-4 w-4 text-primary" />
+      )}
+    </Button>
   );
 }

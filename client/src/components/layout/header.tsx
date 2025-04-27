@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
 import { useState } from "react";
-import { Bell, Menu, ChevronDown } from "lucide-react";
+import { Bell, User, ChevronDown, BarChart2, Settings, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ThemeToggle from "@/components/theme-toggle";
@@ -37,34 +37,35 @@ export default function Header() {
   };
   
   return (
-    <header className="sticky top-0 bg-background/95 backdrop-blur-sm z-40 border-b border-border pt-6 transition-colors duration-300">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="fixed top-0 inset-x-0 bg-background/95 backdrop-blur-sm z-40 border-b border-border transition-colors duration-300">
+      <div className="container mx-auto max-w-md px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
             <div className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary via-amber-500 to-primary text-white flex items-center justify-center mr-3 shadow-sm">
-                <span className="font-bold text-lg">M</span>
+              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary via-amber-500 to-primary text-white flex items-center justify-center mr-2 shadow-sm">
+                <span className="font-bold text-base">M</span>
               </div>
-              <h1 className="text-xl font-bold text-foreground">
+              <h1 className="text-lg font-bold text-foreground">
                 <span className="text-primary">Momen</span><span className="text-foreground">tum</span>
               </h1>
             </div>
           </Link>
         </div>
         
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2">
           <ThemeToggle />
           
           <Button 
             variant="outline" 
             size="icon" 
-            className="relative rounded-full border-primary/20 bg-background hover:bg-primary/5"
+            aria-label="Notifications"
+            className="relative rounded-full w-8 h-8 p-0 border-primary/20 bg-background hover:bg-primary/5"
           >
             <Link href="/profile">
               <div className="relative">
-                <Bell className="h-5 w-5 text-muted-foreground" />
+                <Bell className="h-4 w-4 text-muted-foreground" />
                 {hasNotifications && (
-                  <span className="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+                  <span className="absolute top-0 right-0 w-1.5 h-1.5 bg-primary rounded-full"></span>
                 )}
               </div>
             </Link>
@@ -72,8 +73,11 @@ export default function Header() {
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="rounded-full flex items-center gap-2 h-9 pl-1 pr-3 border-primary/20 bg-background hover:bg-primary/5">
-                <Avatar className="h-7 w-7 border-2 border-primary/20">
+              <Button 
+                variant="outline" 
+                className="rounded-full flex items-center h-8 w-8 p-0 border-primary/20 bg-background hover:bg-primary/5 sm:w-auto sm:pr-3 sm:pl-1"
+              >
+                <Avatar className="h-6 w-6 border-2 border-primary/20">
                   {user.profileImage ? (
                     <AvatarImage 
                       src={user.profileImage} 
@@ -85,10 +89,9 @@ export default function Header() {
                     </AvatarFallback>
                   )}
                 </Avatar>
-                <span className="text-sm font-medium hidden sm:block text-foreground">
+                <span className="text-sm font-medium hidden sm:block sm:ml-2 text-foreground">
                   {user.displayName || user.username}
                 </span>
-                <ChevronDown className="h-4 w-4 text-primary/70" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56 rounded-xl">
@@ -96,27 +99,40 @@ export default function Header() {
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <Link href="/profile">
-                  <div className="cursor-pointer w-full">Profile</div>
+                  <div className="cursor-pointer w-full flex items-center">
+                    <User className="h-4 w-4 mr-2 text-primary/70" />
+                    Profile
+                  </div>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/stats">
-                  <div className="cursor-pointer w-full">Statistics</div>
+                  <div className="cursor-pointer w-full flex items-center">
+                    <BarChart2 className="h-4 w-4 mr-2 text-primary/70" />
+                    Statistics
+                  </div>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/settings">
-                  <div className="cursor-pointer w-full">Settings</div>
+                  <div className="cursor-pointer w-full flex items-center">
+                    <Settings className="h-4 w-4 mr-2 text-primary/70" />
+                    Settings
+                  </div>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} className="text-destructive">
+              <DropdownMenuItem onClick={handleLogout} className="text-destructive flex items-center">
+                <LogOut className="h-4 w-4 mr-2" />
                 {logoutMutation.isPending ? 'Logging out...' : 'Logout'}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
+      
+      {/* Spacer to prevent content from being hidden under the fixed header */}
+      <div className="h-[52px]"></div>
     </header>
   );
 }
