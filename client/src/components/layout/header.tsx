@@ -1,9 +1,10 @@
 import { Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
 import { useState } from "react";
-import { Bell, Menu } from "lucide-react";
+import { Bell, Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ThemeToggle from "@/components/theme-toggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,52 +37,59 @@ export default function Header() {
   };
   
   return (
-    <header className="sticky top-0 bg-white z-40 shadow-sm pt-10">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="sticky top-0 bg-background z-40 shadow-sm pt-6 transition-colors duration-300">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
-            <a className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-primary text-white flex items-center justify-center mr-3">
+            <div className="flex items-center">
+              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center mr-3">
                 <span className="font-bold text-lg">M</span>
               </div>
-              <h1 className="text-xl font-bold text-gray-800">Momentum</h1>
-            </a>
+              <h1 className="text-xl font-bold text-foreground">Momentum</h1>
+            </div>
           </Link>
         </div>
         
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          <ThemeToggle />
+          
           <Button 
             variant="ghost" 
             size="icon" 
-            className="relative"
-            asChild
+            className="relative rounded-full"
           >
             <Link href="/profile">
-              <Bell className="h-6 w-6 text-gray-600" />
-              {hasNotifications && (
-                <span className="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
-              )}
+              <div className="relative">
+                <Bell className="h-5 w-5 text-foreground/70" />
+                {hasNotifications && (
+                  <span className="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+                )}
+              </div>
             </Link>
           </Button>
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="rounded-full h-9 w-9 p-0">
-                <Avatar>
+              <Button variant="ghost" className="rounded-full flex items-center gap-2 h-9 pl-1 pr-3">
+                <Avatar className="h-7 w-7 border-2 border-primary/10">
                   {user.profileImage ? (
                     <AvatarImage 
                       src={user.profileImage} 
                       alt={user.displayName || user.username}
                     />
                   ) : (
-                    <AvatarFallback className="bg-gray-200 text-gray-700">
+                    <AvatarFallback className="bg-primary/10 text-primary text-xs">
                       {userInitials}
                     </AvatarFallback>
                   )}
                 </Avatar>
+                <span className="text-sm font-medium hidden sm:block text-foreground/80">
+                  {user.displayName || user.username}
+                </span>
+                <ChevronDown className="h-4 w-4 text-foreground/50" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="w-56 rounded-xl">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
@@ -94,8 +102,13 @@ export default function Header() {
                   <div className="cursor-pointer w-full">Statistics</div>
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/settings">
+                  <div className="cursor-pointer w-full">Settings</div>
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} className="text-red-500">
+              <DropdownMenuItem onClick={handleLogout} className="text-destructive">
                 {logoutMutation.isPending ? 'Logging out...' : 'Logout'}
               </DropdownMenuItem>
             </DropdownMenuContent>
