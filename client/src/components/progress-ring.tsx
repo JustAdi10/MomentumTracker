@@ -16,7 +16,7 @@ export default function ProgressRing({
   strokeWidth = 8,
   text,
   textBottom,
-  color = "url(#progress-gradient)",
+  color,
   className = ""
 }: ProgressRingProps) {
   const radius = (size - strokeWidth) / 2;
@@ -36,7 +36,7 @@ export default function ProgressRing({
         
         setTimeout(() => {
           if (progressRef.current) {
-            progressRef.current.style.transition = "stroke-dashoffset 1s ease";
+            progressRef.current.style.transition = "stroke-dashoffset 1s cubic-bezier(0.34, 1.56, 0.64, 1)";
             progressRef.current.style.strokeDashoffset = String(offset);
           }
         }, 100);
@@ -50,20 +50,27 @@ export default function ProgressRing({
     }
   }, [percentage, offset, circumference]);
 
+  // Generate unique gradient IDs to prevent conflicts with multiple instances
+  const gradientId = useRef(`progress-gradient-${Math.random().toString(36).substr(2, 9)}`);
+
   return (
     <div className={`relative ${className}`}>
       <svg className="progress-ring" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <defs>
-          <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#5D68F1" />
-            <stop offset="100%" stopColor="#FF6B6B" />
+          <linearGradient id={gradientId.current} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--primary))" />
+            <stop offset="100%" stopColor="hsl(var(--secondary))" />
           </linearGradient>
+          {/* Optional glow filter */}
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
         </defs>
 
         {/* Background circle */}
         <circle 
-          className="progress-ring-circle"
-          stroke="#E5E7EB"
+          className="progress-ring-bg"
           strokeWidth={strokeWidth}
           fill="transparent"
           r={radius}
@@ -74,8 +81,8 @@ export default function ProgressRing({
         {/* Progress circle */}
         <circle 
           ref={progressRef}
-          className="progress-ring-circle"
-          stroke={color}
+          className="progress-ring-fg"
+          stroke={color || `url(#${gradientId.current})`}
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           fill="transparent"
@@ -85,15 +92,16 @@ export default function ProgressRing({
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
+          filter="url(#glow)"
         />
       </svg>
       
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         {text && (
-          <span className="text-3xl font-bold text-gray-800">{text}</span>
+          <span className="text-2xl font-bold text-foreground dark:text-primary-foreground">{text}</span>
         )}
         {textBottom && (
-          <span className="text-xs text-gray-500">{textBottom}</span>
+          <span className="text-xs text-muted-foreground">{textBottom}</span>
         )}
       </div>
     </div>
