@@ -1,0 +1,77 @@
+Create a Swift-based iOS app called Momentum — a gamified fitness and habit-building app.
+
+Core Features:
+
+Personalized Habit Tracking:
+
+Allow users to set daily, weekly, or monthly habits.
+
+Users should be able to mark habits as complete and track their streaks.
+
+Include reminders/notifications for habits.
+
+Visualize habit streaks and success rates using progress graphs (charts and stats).
+
+Motivational System:
+
+Display motivational quotes when users open the app or complete a habit.
+
+Unlockable "milestone achievements" based on progress.
+
+Gamification Layer (Duolingo/Chess.com style):
+
+Implement levels, XP points, badges, and challenges.
+
+Introduce streak-saving features ("Momentum boosts") for missed days.
+
+Leaderboards showing consistency levels in different divisions (Bronze, Silver, Gold, etc.).
+
+Community Feature:
+
+Users can join or create "Consistency Divisions" similar to Chess.com clubs.
+
+Basic community feed: post milestones, cheer for others, etc.
+
+Apple Watch Integration:
+
+Enable live tracking of habits directly from Apple Watch.
+
+Send water intake reminders and allow quick logging via Watch.
+
+Show progress rings for daily goals on Watch face.
+
+Reminders & Notifications:
+
+Smart reminders based on user preference and habit schedules.
+
+Push notifications with encouraging messages if a habit is incomplete near the deadline.
+
+Firebase Backend:
+
+Use Firebase Authentication (Email, Apple Sign-In, Google).
+
+Firestore database to store:
+
+User profiles, habits, habit logs, achievements, community posts, and leaderboard data.
+
+Firebase Cloud Messaging for reminders and motivational notifications.
+
+Firebase Storage for optional profile pictures.
+
+Optional: Firebase Functions for gamification logic (XP, level-ups, rewards distribution).
+
+Design Notes:
+
+Clean, minimalistic, energetic aesthetic (white background, vibrant colors for progress, soft animations).
+
+Friendly, motivational tone throughout the app.
+
+Devices:
+
+iPhone and Apple Watch (WatchOS support).
+
+Other:
+
+Local data caching to allow offline habit tracking.
+
+Seamless sync across devices via Firebase.
