@@ -36,12 +36,24 @@ Momentum is a modern habit tracking application that combines proven habit-build
 
 ## Screenshots
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max).png" alt="Dashboard" width="400"/>
-  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(1).png" alt="Habit Tracking" width="400"/>
-  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(2).png" alt="Profile" width="400"/>
-  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(5).png" alt="Achievements" width="400"/>
-  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(8).png" alt="Statistics" width="400"/>
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+  <img src="attached_assets/Momentum%20Auth.png" alt="Login Screen" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max).png" alt="Dashboard" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(1).png" alt="Habit Tracking" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(2).png" alt="Profile" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(3).png" alt="User Stats" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(4).png" alt="Activity Feed" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(5).png" alt="Achievements" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(6).png" alt="Habit Details" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(7).png" alt="Add Habit" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(8).png" alt="Statistics" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(9).png" alt="Leaderboard" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(10).png" alt="Community" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(11).png" alt="Settings" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(12).png" alt="Dark Mode" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(13).png" alt="Notifications" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(14).png" alt="Progress Charts" width="300"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(15).png" alt="Weekly Report" width="300"/>
 </div>
 
 ## Getting Started
