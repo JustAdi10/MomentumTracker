@@ -4,7 +4,10 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/hooks/use-auth";
-import { ThemeProvider } from "next-themes";
+import { HabitsProvider } from "@/hooks/use-habits";
+import { StatsProvider } from "@/hooks/use-stats";
+import { AchievementsProvider } from "@/hooks/use-achievements";
+import { CommunityProvider } from "@/hooks/use-community";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/home-page";
 import HabitsPage from "@/pages/habits-page";
@@ -30,18 +33,24 @@ function Router() {
 
 function App() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <TooltipProvider>
-            <div className="min-h-screen bg-background transition-colors duration-300">
-              <Toaster />
-              <Router />
-            </div>
-          </TooltipProvider>
-        </AuthProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <HabitsProvider>
+          <StatsProvider>
+            <AchievementsProvider>
+              <CommunityProvider>
+                <TooltipProvider>
+                  <div className="min-h-screen bg-background transition-colors duration-300">
+                    <Toaster />
+                    <Router />
+                  </div>
+                </TooltipProvider>
+              </CommunityProvider>
+            </AchievementsProvider>
+          </StatsProvider>
+        </HabitsProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
 

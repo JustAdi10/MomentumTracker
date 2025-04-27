@@ -58,8 +58,9 @@ export default function ProgressRing({
       <svg className="progress-ring" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <defs>
           <linearGradient id={gradientId.current} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" />
-            <stop offset="100%" stopColor="hsl(var(--secondary))" />
+            <stop offset="0%" stopColor="hsl(16, 80%, 54%)" /> {/* #eb5e28 - orange */}
+            <stop offset="50%" stopColor="hsl(33, 70%, 65%)" /> {/* Lighter amber */}
+            <stop offset="100%" stopColor="hsl(16, 80%, 54%)" /> {/* #eb5e28 - orange */}
           </linearGradient>
           {/* Optional glow filter */}
           <filter id="glow">
@@ -98,10 +99,10 @@ export default function ProgressRing({
       
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         {text && (
-          <span className="text-2xl font-bold text-foreground dark:text-primary-foreground">{text}</span>
+          <span className="text-2xl font-bold text-primary dark:text-primary-foreground">{text}</span>
         )}
         {textBottom && (
-          <span className="text-xs text-muted-foreground">{textBottom}</span>
+          <span className="text-xs text-muted-foreground font-medium">{textBottom}</span>
         )}
       </div>
     </div>

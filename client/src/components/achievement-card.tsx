@@ -49,13 +49,15 @@ export default function AchievementCard({
   };
 
   return (
-    <Card className={`momentum-card flex flex-col items-center text-center transition-all duration-300 overflow-hidden ${
-      !unlocked ? 'dark:opacity-40 opacity-60 dark:grayscale grayscale-[50%]' : 'transform hover:scale-105'
+    <Card className={`momentum-card flex flex-col items-center text-center transition-all duration-300 overflow-hidden backdrop-blur-sm ${
+      !unlocked 
+        ? 'dark:opacity-40 opacity-60 dark:grayscale grayscale-[50%]' 
+        : 'transform hover:scale-105 hover:shadow-md'
     }`}>
       <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-colors ${
         unlocked 
-          ? 'bg-gradient-to-br from-primary/20 to-secondary/20 text-primary dark:text-primary-foreground' 
-          : 'bg-muted text-muted-foreground'
+          ? 'bg-gradient-to-br from-primary/20 to-primary/5 text-primary border-2 border-primary/10' 
+          : 'bg-muted/50 text-muted-foreground border-2 border-muted'
       }`}>
         {renderIcon()}
       </div>
@@ -80,7 +82,7 @@ export default function AchievementCard({
           </Tooltip>
         </TooltipProvider>
       ) : (
-        <Badge variant="outline" className="text-xs font-medium bg-muted text-muted-foreground mt-2 px-3 py-1">
+        <Badge variant="outline" className="text-xs font-medium bg-muted/30 text-muted-foreground mt-2 px-3 py-1">
           <LockIcon className="h-3 w-3 mr-1" />
           Locked
         </Badge>
@@ -88,8 +90,8 @@ export default function AchievementCard({
       
       {/* Badge or ribbon for unlocked achievements */}
       {unlocked && (
-        <div className="absolute -top-1 -right-8 w-20 h-5 bg-gradient-to-r from-primary to-secondary rotate-45 flex items-center justify-center">
-          <span className="text-[8px] font-bold text-white">UNLOCKED</span>
+        <div className="absolute -top-1 -right-8 w-20 h-5 bg-primary rotate-45 flex items-center justify-center">
+          <span className="text-[8px] font-bold text-primary-foreground">UNLOCKED</span>
         </div>
       )}
     </Card>

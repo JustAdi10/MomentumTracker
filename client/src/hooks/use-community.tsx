@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -29,7 +29,7 @@ const CommunityContext = createContext<CommunityContextType | null>(null);
 
 export function CommunityProvider({ children }: { children: ReactNode }) {
   const { toast } = useToast();
-  const [isGlobalLeaderboard, setIsGlobalLeaderboard] = React.useState(false);
+  const [isGlobalLeaderboard, setIsGlobalLeaderboard] = useState(false);
 
   // Fetch community activity
   const { data: activity = [], isLoading } = useQuery<CommunityActivity[]>({
