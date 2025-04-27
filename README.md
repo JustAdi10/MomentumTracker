@@ -36,17 +36,13 @@ Momentum is a modern habit tracking application that combines proven habit-build
 
 ## Screenshots
 
-![Login Screen](attached_assets/Momentum%20Auth.png)
-
-![Dashboard](attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max).png)
-
-![Habit Tracking](attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(1).png)
-
-![Profile](attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(2).png)
-
-![Achievements](attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(5).png)
-
-![Statistics](attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(8).png)
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max).png" alt="Dashboard" width="400"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(1).png" alt="Habit Tracking" width="400"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(2).png" alt="Profile" width="400"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(5).png" alt="Achievements" width="400"/>
+  <img src="attached_assets/cfe7252b-27f2-4989-b555-fbd38e23ab8d-00-nqm92djvazlh.kirk.replit.dev_auth(iPhone%2014%20Pro%20Max)%20(8).png" alt="Statistics" width="400"/>
+</div>
 
 ## Getting Started
 
